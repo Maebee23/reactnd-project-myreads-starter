@@ -11,12 +11,18 @@ body,
   background: white;
 }
 
-/* main page */
+/* Rating */
 
-ul {
-  list-style-type: none;
-  display: inline-block;
+.far,
+.fa {
+  padding: 4px;
 }
+
+.fa {
+  color: goldenrod;
+}
+
+/* main page */
 
 .list-books-title {
   padding: 10px 0;

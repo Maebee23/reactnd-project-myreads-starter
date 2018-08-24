@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import * as BooksAPI from '../BooksAPI';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+var Rating = require('react-rating');
 
 class Book extends Component {
   state = {
-    currentShelf: 'none'
+    currentShelf: 'none',
+    stars: [1, 2, 3]
   };
 
   updateNewShelf = e => {
@@ -16,11 +19,16 @@ class Book extends Component {
       ? this.props.imageLinks.thumbnail
       : '';
 
+    console.log(this.props.currentShelf);
     return (
       <div className="book">
-        <ul style={{ listStyle: 'none', display: 'inline-block' }}>
-          <i className="far fa-star" />
-        </ul>
+        {this.props.currentShelf === 'read' ? (
+          <Rating
+            stop={5}
+            emptySymbol={'far fa-star'}
+            fullSymbol={'fa fa-star'}
+          />
+        ) : null}
         <div className="book-top">
           <div
             className="book-cover"

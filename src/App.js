@@ -7,6 +7,11 @@ import Header from './components/Header';
 import Shelves from './components/Shelves';
 import Search from './components/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, f005 } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faStar);
 
 class BooksApp extends React.Component {
   state = {
