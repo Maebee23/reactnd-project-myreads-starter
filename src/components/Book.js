@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-var Rating = require('react-rating');
+const Rating = require('react-rating');
 
 class Book extends Component {
   state = {
-    currentShelf: 'none',
-    stars: [1, 2, 3]
+    currentShelf: 'none'
   };
 
   updateNewShelf = e => {
@@ -19,16 +17,8 @@ class Book extends Component {
       ? this.props.imageLinks.thumbnail
       : '';
 
-    console.log(this.props.currentShelf);
     return (
       <div className="book">
-        {this.props.currentShelf === 'read' ? (
-          <Rating
-            stop={5}
-            emptySymbol={'far fa-star'}
-            fullSymbol={'fa fa-star'}
-          />
-        ) : null}
         <div className="book-top">
           <div
             className="book-cover"
@@ -57,6 +47,15 @@ class Book extends Component {
         </div>
         <div className="book-title">{this.props.title}</div>
         <div className="book-authors">{this.props.authors}</div>
+        {this.props.averageRating ? (
+          <Rating
+            initialRating={this.props.averageRating}
+            stop={5}
+            emptySymbol={'far fa-star'}
+            fullSymbol={'fa fa-star'}
+            readonly={true}
+          />
+        ) : null}
       </div>
     );
   }

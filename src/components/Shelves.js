@@ -24,9 +24,9 @@ class Shelves extends Component {
   };
 
   render() {
-    const { shelves, currentShelf } = this.state;
-    const { name, shelf } = this.state;
+    const { shelves } = this.state;
     const { showBooks } = this.state;
+
     return (
       <React.Fragment>
         {shelves.map(shelf => (
@@ -35,6 +35,7 @@ class Shelves extends Component {
               <h2 className="bookshelf-title">
                 {shelf.name}{' '}
                 <i
+                  style={{ cursor: 'pointer' }}
                   onClick={() =>
                     this.setState({ showBooks: !this.state.showBooks })
                   }
@@ -50,6 +51,8 @@ class Shelves extends Component {
                         <li key={book.id}>
                           <Book
                             book={book}
+                            books={this.props.books}
+                            averageRating={book.averageRating}
                             currentShelf={book.shelf}
                             title={book.title}
                             authors={[book.authors]}

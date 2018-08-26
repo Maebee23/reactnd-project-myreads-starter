@@ -9,13 +9,14 @@ import Search from './components/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, f005 } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faStar);
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
+    bookRating: [...1]
   };
 
   componentDidMount() {
@@ -30,8 +31,10 @@ class BooksApp extends React.Component {
       this.setState({ books });
     });
   };
+
   render() {
-    console.log(this.state.books);
+    const { books } = this.state;
+
     return (
       <div className="app">
         <Route
@@ -42,10 +45,7 @@ class BooksApp extends React.Component {
               <div className="list-books-content">
                 <Header />
                 <div>
-                  <Shelves
-                    books={this.state.books}
-                    updateShelf={this.updateShelf}
-                  />
+                  <Shelves books={books} updateShelf={this.updateShelf} />
                 </div>
               </div>
               <div className="open-search">

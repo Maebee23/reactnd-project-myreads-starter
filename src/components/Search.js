@@ -14,11 +14,7 @@ class Search extends Component {
     this.showBooks(query);
   };
 
-  checkShelf = () => {
-    this.props.books.forEach(book => console.log(book.id));
-  };
-
-  // inspired by walkthrough by Maev @
+  // inspired by walkthrough by Maeva @ https://youtu.be/i6L2jLHV9j8
   //  if there is a query, search BooksAPI, if there is an error set searchResults to empty array,
   // is there are results, update the state with the returned value,
   // if there are no results, set searchresults to empty array
@@ -36,7 +32,7 @@ class Search extends Component {
     const { query } = this.state;
     const { searchResults } = this.state;
     let shelf;
-
+    console.log(searchResults);
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -55,7 +51,7 @@ class Search extends Component {
 
         <div className="search-books-results">
           <ol className="books-grid">
-            {/* Insprired by walkthrough by Maev @ 
+            {/* Insprired by walkthrough by Maeav @ https://youtu.be/i6L2jLHV9j8
              map through searchResults and the books array
              check if ids match, is so, set currentShelf 
              to the value from the books array
@@ -72,6 +68,7 @@ class Search extends Component {
                     <Book
                       book={book}
                       currentShelf={shelf}
+                      averageRating={book.averageRating}
                       title={book.title}
                       authors={[book.authors]}
                       imageLinks={book.imageLinks}
