@@ -14,7 +14,7 @@ Project 6, My-Reads App, calls for students to take a static page and create a f
 
 # Installation
 
-To run this application, simply download or clode this repository, run `npm install`, and `npm start`.
+To run this application, simply download or clone this repository, run `npm install`, and `npm start`.
 
 # Acknowledgements
 
