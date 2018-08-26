@@ -6,8 +6,11 @@ Project 6, My-Reads App, calls for students to take a static page and create a f
 
 # Dependencies
 
-- [BootStrap](#bootstrap)
-- [React-Rating](#react-rating) \*[FontAwesome](fontawesome)
+- [BootStrap](https://getbootstrap.com/)
+
+- [React-Rating](https://www.npmjs.com/package/react-rating)
+
+- [FontAwesome](https://fontawesome.com/)
 
 # Installation
 
