@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Book from './Book';
+import Shelf from './Shelf';
 
 class Shelves extends Component {
   state = {
@@ -24,47 +24,27 @@ class Shelves extends Component {
   };
 
   render() {
-    const { shelves } = this.state;
-    const { showBooks } = this.state;
-
+    const { shelves, currentShelf } = this.state;
+    const { name, shelf } = this.state;
+    const { showBooks } = this.state.shelves;
+    let clicked = false;
+    const toggleShelf = e => {
+      clicked = true;
+      console.log(e.target.id);
+    };
     return (
       <React.Fragment>
         {shelves.map(shelf => (
           <div className="card card-body mb-3" key={shelf.id}>
-            <div className="bookshelf">
-              <h2 className="bookshelf-title">
-                {shelf.name}{' '}
-                <i
-                  style={{ cursor: 'pointer' }}
-                  onClick={() =>
-                    this.setState({ showBooks: !this.state.showBooks })
-                  }
-                  className="fas fa-book-open fa-xs"
-                />
-              </h2>
-              {showBooks ? (
-                <div className="bookshelf-books">
-                  <ol className="books-grid">
-                    {this.props.books
-                      .filter(book => book.shelf === shelf.currentShelf)
-                      .map(book => (
-                        <li key={book.id}>
-                          <Book
-                            book={book}
-                            books={this.props.books}
-                            averageRating={book.averageRating}
-                            currentShelf={book.shelf}
-                            title={book.title}
-                            authors={[book.authors]}
-                            imageLinks={book.imageLinks}
-                            updateShelf={this.props.updateShelf}
-                          />
-                        </li>
-                      ))}
-                  </ol>
-                </div>
-              ) : null}
-            </div>
+            <Shelf
+              books={this.props.books}
+              shelves={this.state.shelves}
+              currentShelf={shelf.currentShelf}
+              name={shelf.name}
+              updateShelf={this.props.updateShelf}
+              averageRating={this.props.averageRating}
+              // currentShelf={this.props.shelf}
+            />
           </div>
         ))}
       </React.Fragment>
